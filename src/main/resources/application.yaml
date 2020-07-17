@@ -3,3 +3,7 @@ spring:
     check-template-location: true
     cache: false
     prefix: file:./src/main/resources/templates/
+  data.mongodb:
+    database: test
+    host: localhost
+    port: 27017

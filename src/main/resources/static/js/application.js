@@ -1,4 +1,9 @@
 function init() {
+    $('#query').autocomplete({
+        serviceUrl: '/autocomplete',
+        paramName: 'q',
+        noCache: true
+    });
     
     $('#btnTest').on('click', function() {
         window.location.href = '/test';

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
     <head th:replace="fragments :: mainHead"></head>
-    <body>
+    <body onload="init()">
         <div id="wrap">
             <div id="main" class="container clear-top">
                 <div th:replace="${content} :: content"></div>
