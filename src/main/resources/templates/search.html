@@ -1,6 +1,40 @@
 <div th:fragment="content">
     <div class="text-center mt-5 pt-5">
-        <h3>You just searched for: <span th:text="${query}"></span></h3>
+        <h3>You just searched for: "<span th:text="${query}"></span>"</h3>
+        
+        <table th:if="${#lists.size(response.content) > 0}" class="table table-sm table-striped table-light mt-3">
+            <tr>
+                <th>Rank</th>
+                <th>Movie title</th>
+                <th>Staff</th>
+            </tr>
+            <tr th:each="movie : ${response.content}">
+                <td th:text="${movie.rank}" class="text-right"></td>
+                <td th:text="${movie.title}" class="text-left"></td>
+                <td th:text="${movie.staffline()}" class="text-left"></td>
+            </tr>
+        </table>
+        
+        <nav th:if="${response.totalPages > 1}">
+            <ul class="pagination justify-content-center" th:classappend="${response.totalPages > 20} ? pagination-sm">
+                <li class="page-item" th:classappend="${response.number < 1} ? disabled">
+                    <a th:href="@{/search(query=${query}, page=${response.number})}" class="page-link"><i class="fas fa-arrow-left"></i></a>
+                </li>
+                <li th:each="pageNumber : ${pageNumbers}" class="page-item" th:classappend="${pageNumber==response.number + 1} ? active">
+                    <a th:href="@{/search(query=${query}, page=${pageNumber})}" class="page-link" th:text=${pageNumber}></a>
+                </li>
+                <li class="page-item" th:classappend="${response.number+1 >= response.totalPages} ? disabled">
+                    <a th:href="@{/search(query=${query}, page=${response.number+2})}" class="page-link"><i class="fas fa-arrow-right"></i></a>
+                </li>
+            </ul>
+        </nav>
+        
+        <p th:if="${#lists.size(response.content) == 0}" class="mt-5">
+            We are sorry, no matches for your query were found.
+        </p>
+        <p th:if="${#strings.length(query) < 2}">
+            You have to specify at least two characters in your query.
+        </p>
         
         <a class="btn btn-dark mt-5" href="/"><i class="fas fa-undo"></i> Go back</a>
     </div>

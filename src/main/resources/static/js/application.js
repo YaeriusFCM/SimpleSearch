@@ -4,10 +4,6 @@ function init() {
         paramName: 'q',
         noCache: true
     });
-    
-    $('#btnTest').on('click', function() {
-        window.location.href = '/test';
-    });
 }
 
 function go(url) {

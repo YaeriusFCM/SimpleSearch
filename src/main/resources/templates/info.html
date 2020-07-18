@@ -1,0 +1,21 @@
+<div th:fragment="content">
+    <div class="text-center mt-5 pt-5">
+        <h3>Application description</h3>
+        
+        <p class="mt-5 text-justify">
+            The application searches through a database with 500 top rated movies by IMDb.
+        </p>
+        <p class="text-justify">
+            Whenever you enter a character in the search bar, the application will run an AJAX query to find all matching actors' names
+            in the database. Those names will be sorted by popularity (the biggest number of movies starring that actor), then truncated only to 5 names
+            and those names will be displayed in alphabetical order. You can choose from the suggested names but you do not have to. You may just search 
+            for partial name if you like.
+        </p>
+        <p class="text-justify">
+            When you press 'Enter' or click the 'Search' button, the application will look for movies starring actors whose names match to the given query.
+            Movies will be displayed in a table, ordered by rank (highest IMDb rating), paginated to fit maximum of 10 entries per page.
+        </p>
+        
+        <a class="btn btn-dark mt-5" href="/"><i class="fas fa-undo"></i> Go back</a>
+    </div>
+</div>
