@@ -4,6 +4,10 @@ Author: [Paweł Dobrzański](https://www.linkedin.com/in/pawel-dobrzanski/)
 Created: July 2020  
 Technology stack: Spring Boot, Groovy, MongoDB, JSON, Thymeleaf, HTML, Bootstrap, CSS, Font Awesome, jQuery.
 
+## Description
+
+Simple search mechanism that finds movie titles by actors who starred in them.
+
 ## Installation guide
 
 ### Prerequisites
@@ -23,6 +27,6 @@ Please install the above software by following appropriate links. Leave Mongo se
 1. Choose "Import file" and browse for `SimpleSearch/src/main/resources/db-input.json`
 1. After the import, the collection should consist of 500 documents
 1. Enter the **SimpleSearch** folder and compile the project by running: `gradlew build` (gradlew.bat if on Windows)
-1. Start the application by running: `java -jar build\libs\SimpleSearch-0.0.1.jar`
+1. Start the application by running: `java -jar build/libs/SimpleSearch-0.0.1.jar`
 1. Open your browser and enter: `localhost:8080`
 1. Enjoy :)
